@@ -14,7 +14,7 @@ class FormatterMap {
   final Injector _injector;
 
   FormatterMap(this._injector, MetadataExtractor extractMetadata) {
-    _injector.types.forEach((type) {
+    (_injector as ModuleInjector).types.forEach((type) {
       extractMetadata(type)
       .where((annotation) => annotation is Formatter)
       .forEach((Formatter formatter) {
